@@ -8,7 +8,6 @@ import {
 } from "react-table";
 import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
 import { useMemo } from "react";
-import Progress from "components/progress";
 const ComplexTable = (props) => {
   const { columnsData, tableData } = props;
 
@@ -100,7 +99,7 @@ const ComplexTable = (props) => {
                         </p>
                       );
                     } else if (cell.column.Header === "PROGRESS") {
-                      data = <Progress width="w-[108px]" value={cell.value} />;
+                      // data = <Progress width="w-[108px]" value={cell.value} />;
                     }
                     return (
                       <td

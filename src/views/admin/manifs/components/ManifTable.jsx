@@ -1,5 +1,4 @@
 import Card from "components/card";
-import Progress from "components/progress";
 import axios from "axios";
 import React from "react";
 
