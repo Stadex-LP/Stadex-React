@@ -11,7 +11,7 @@ const client = axios.create({
    }
 });
 
-function ManifTable() {
+function OrgsTable() {
 
   const [post, setPost] = React.useState(null);
 
@@ -129,4 +129,4 @@ function ManifTable() {
   );
 }
 
-export default ManifTable;
+export default OrgsTable;

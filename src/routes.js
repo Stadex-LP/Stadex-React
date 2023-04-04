@@ -9,6 +9,10 @@ import {
   MdHome,
   MdBarChart,
 } from "react-icons/md";
+import Transports from "views/admin/transports";
+import Equipements from "views/admin/equipementS";
+import Organisateurs from "views/admin/organisateurs";
+import Materiel from "views/admin/materiel";
 
 const routes = [
   {
@@ -24,29 +28,34 @@ const routes = [
     icon: <MdBarChart className="h-6 w-6" />,
     path: "manifestations",
     component: <Manif />,
+  },
+  {
+    name: "Transports",
+    layout: "/admin",
+    icon: <MdBarChart className="h-6 w-6" />,
+    path: "transports",
+    component: <Transports />,
+  },
+  {
+    name: "Equipement",
+    layout: "/admin",
+    icon: <MdBarChart className="h-6 w-6" />,
+    path: "equipements",
+    component: <Equipements />,
+  },
+  {
+    name: "Organisateurs",
+    layout: "/admin",
+    icon: <MdBarChart className="h-6 w-6" />,
+    path: "organisateurs",
+    component: <Organisateurs />,
+  },
+  {
+    name: "Materiel",
+    layout: "/admin",
+    icon: <MdBarChart className="h-6 w-6" />,
+    path: "materiel",
+    component: <Materiel />,
   }
-  // {
-  //   name: "Profile",
-  //   layout: "/admin",
-  //   path: "profile",
-  //   icon: <MdPerson className="h-6 w-6" />,
-  //   component: <Profile />,
-  // },
-  // {
-  //   name: "Manifestation",
-  //   layout: "/admin",
-  //   path: "nft-marketplace",
-  //   icon: <MdBarChart className="h-6 w-6" />,
-  //   component: <NFTMarketplace />,
-  //   secondary: true,
-  // },
-
-  // {
-  //   name: "Data Tables",
-  //   layout: "/admin",
-  //   icon: <MdBarChart className="h-6 w-6" />,
-  //   path: "data-tables",
-  //   component: <DataTables />,
-  // },
 ];
 export default routes;
