@@ -3,50 +3,29 @@ import Progress from "components/progress";
 import axios from "axios";
 import React from "react";
 
-const baseURL = "https://jsonplaceholder.typicode.com/posts/1";
+const client = axios.create({
+
+  baseURL: "http://localhost/api/manifestations" ,
+  headers: { 
+    'Content-Type': 'application/json',
+    'accept': 'application/json'
+   }
+});
 
 function ManifTable() {
 
-    const [post, setPost] = React.useState(null);
+  const [post, setPost] = React.useState(null);
 
-    React.useEffect(() => {
-      axios.get(baseURL).then((response) => {
-        setPost(response.data);
-      });
-    }, []);
+  React.useEffect(() => {
+    async function getPost() {
+      const response = await client.get("/1");
+      console.log();
+      setPost(response.data);
+    }
+    getPost();
+  }, []);
   
-    if (!post) return null;
-
-  const people = [
-    {
-      id : 1,  
-      name: 'Jane Cooper',
-      title: 'Regional Paradigm Technician',
-      department: 'Optimization',
-      role: 'Admin',
-      email: 'jane.cooper@example.com',
-      image: 'https://bit.ly/33HnjK0',
-    },
-    {
-      id : 2, 
-      name: 'John Doe',
-      title: 'Regional Paradigm Technician',
-      department: 'Optimization',
-      role: 'Tester',
-      email: 'john.doe@example.com',
-      image: 'https://bit.ly/3I9nL2D',
-    },
-    {
-      id: 3,
-      name: 'Veronica Lodge',
-      title: 'Regional Paradigm Technician',
-      department: 'Optimization',
-      role: ' Software Engineer',
-      email: 'veronica.lodge@example.com',
-      image: 'https://bit.ly/3vaOTe1',
-    },
-    // More people...
-  ];
+  if (!post) return "No post!";
 
   return (
     <Card extra={"h-[600px] w-full"}>
@@ -107,40 +86,40 @@ function ManifTable() {
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
 
-                    {people.map(person => (
+                    {/* {people.map(person => ( ))} */}
 
-                        <tr key={person.email}>
+                    <tr key={post.id}>
 
-                        <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="text-sm text-gray-900">{person.id}</div>
-                        </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-900">{post.id}</div>
+                      </td>
 
-                        <td className="px-6 py-4 whitespace-nowrap">
+                      <td className="px-6 py-4 whitespace-nowrap">
 
-                            {/* <div className="text-sm font-medium text-gray-900">{post.title}</div> */}
-                            <div className="text-sm font-medium text-gray-900">{person.name}</div>
-                            
-                        </td>
+                          {/* <div className="text-sm font-medium text-gray-900">{post.title}</div> */}
+                          <div className="text-sm font-medium text-gray-900">{post.denomination}</div>
+                          
+                      </td>
 
-                        <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="text-sm text-gray-500">{person.department}</div>
-                        </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-500">{post.dateDebut}</div>
+                      </td>
 
-                        <td className="px-6 py-4 whitespace-nowrap">
-                            <div className="text-sm text-gray-500">{person.department}</div>
-                        </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-500">{post.dateFin}</div>
+                      </td>
 
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {person.role}
-                        </td>
-                        
-                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                            Voir
-                            </a>
-                        </td>
-                        </tr>
-                    ))}
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                          {post.lieu}
+                      </td>
+
+                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                          <a href="#" className="text-indigo-600 hover:text-indigo-900">
+                          Voir
+                          </a>
+                      </td>
+                    </tr>
+
                     </tbody>
                 </table>
                 </div>
